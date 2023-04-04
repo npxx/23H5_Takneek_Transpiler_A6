@@ -69,6 +69,42 @@ def popf():
 
     active_loc = "kd_3"
 
+def operations(hall):
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, {hall}\n")
+    result.write(f"{hall}, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+
+    active_loc = "kd_3"
+
+def mod():
+    global cond, active_loc
+
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, hall_12\n")
+    result.write(f"hall_12, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, hall_3\n")
+    result.write(f"hall_3, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    active_loc = "kd_3"
+
+    operations("hall_5")
+
 result = open("output.iitkv", "w")
 active_loc = "start"
 path = "path.txt"
@@ -101,22 +137,12 @@ for a in tokens:
         swap()
     elif a == "cycle":
         cyc()
+    elif a == "rcycle":
+        rcyc()
     elif a == "rev":
         rev()
     elif a == "dup":
         dup()
-    elif a == "outputascii":
-        asciiout()
-        popf()
-    elif a == "debug":
-        debug()
-    elif a == "rcycle":
-        rcyc()
-    elif is_num(a):
-        n = int(a)
-        push(n)
-    elif a == "quit":
-        end_graph()
     elif a == "if":
         loop_start()
     elif a == "fi":
@@ -126,6 +152,16 @@ for a in tokens:
         result.write(f"{active_loc}, {cond}, hall_13_3\n")
         active_loc = "hall_13_3"
         asciiin()
+    elif a == "outputascii":
+        asciiout()
+        popf()
+    elif a == "debug":
+        debug()
+    elif a == "quit":
+        end_graph()
+    elif is_num(a):
+        n = int(a)
+        push(n)
     elif a == "and":
         bitwise_and()
     elif a == "xor":
