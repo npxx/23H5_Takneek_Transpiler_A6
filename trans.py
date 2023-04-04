@@ -16,6 +16,59 @@ def end_graph():
     result.write(f"oat_stage, {cond}, finish\n")
     active_loc = "finish"
 
+def prep_insert():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, hall_13_2\n")
+
+    active_loc = "hall_13_2"
+
+def get_input(p):
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, ")
+    if p == 1:
+        result.write(f"iit_gate_in_1\n")
+        active_loc = "iit_gate_in_1"
+    elif p == 2:
+        result.write(f"iit_gate_in_2\n")
+        active_loc = "iit_gate_in_2"
+
+def pr_output(p):
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, ")
+
+    if p == 1:
+        result.write(f"iit_gate_out_1\n")
+        active_loc = "iit_gate_out_1"
+    elif p == 2:
+        result.write(f"iit_gate_out_2\n")
+        active_loc = "iit_gate_out_2"
+
+def popf():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+
+    active_loc = "kd_3"
+
 result = open("output.iitkv", "w")
 active_loc = "start"
 path = "path.txt"
@@ -28,9 +81,9 @@ init()
 for a in tokens:
     if a == "input":
         prep_insert()
-        take_input(2)
+        get_input(2)
     elif a == "output":
-        output(2)
+        pr_output(2)
         popf()
     elif a == "pop":
         popf()
