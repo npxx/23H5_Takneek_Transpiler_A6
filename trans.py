@@ -104,6 +104,202 @@ def mod():
     active_loc = "kd_3"
 
     operations("hall_5")
+ 
+def swap():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, mt_3_1\n")
+    result.write(f"mt_3_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, kd_2\n")
+
+    active_loc = "kd_2"
+
+def cyc():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, mt_3_1\n")
+    result.write(f"mt_3_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, events_1\n")
+    result.write(f"events_1_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, rm_1\n")
+    result.write(f"events_2_t, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+
+    active_loc = "kd_3"
+
+def rcyc():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, events_1\n")
+    result.write(f"events_1_t, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, mt_3_1\n")
+    result.write(f"mt_3_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, events_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    
+    active_loc = "kd_3"
+
+def rev():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, kd_2\n")
+    result.write(f"events_1_t, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, rm_1\n")
+    result.write(f"events_1_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_1\n")
+    result.write(f"mt_3_1, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, rm_3\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, oat_stage\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, oat_stage\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, events_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, pronite_1\n")
+    result.write(f"pronite_1, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_1\n")
+
+    active_loc = "kd_1"
+
+def dup():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, kd_2\n")
+    
+    active_loc = "kd_2"
+
 
 result = open("output.iitkv", "w")
 active_loc = "start"
