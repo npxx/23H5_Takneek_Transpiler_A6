@@ -348,6 +348,152 @@ def loop_end():
     cond -= (a - 1)
     active_loc = "oat_stage"
 
+#String IO
+def asciiin():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, airstrip_land_2\n")
+    result.write(f"airstrip_land_2, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, rm_2\n")
+    result.write(f"events_2_t, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, rm_1\n")
+    result.write(f"events_1_t, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, airstrip_land_2\n")
+    result.write(f"airstrip_land_2, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_2\n")
+
+    result.write(f"events_2_f, {cond}, rm_2\n")
+    result.write(f"events_2_t, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, events_1\n")
+
+    result.write(f"events_1_f, {cond}, rm_1\n")
+    result.write(f"events_1_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_1\n")
+    result.write(f"mt_3_1, {cond}, mt_2_3\n")
+    result.write(f"mt_2_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, rm_2\n")
+
+    result.write(f"rm_2, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, rm_3\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, kd_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, mt_3_2\n")
+    result.write(f"mt_3_2, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, rm_1\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+    result.write(f"oat_stage, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, events_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+    result.write(f"oat_stage, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, oat_stage[1]\n")
+    cond += 1
+    result.write(f"oat_stage, {cond}, kd_1\n")
+    active_loc = "kd_1"
+
+def asciiout():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, nankari_gate_out_2\n")
+    
+    active_loc = "nankari_gate_out_2"
+
+#Debug function for printing the complete stack
+def debug():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, events_1\n")
+    result.write(f"events_1_f, {cond}, kd_1\n")
+    result.write(f"events_1_t, {cond}, events_2\n")
+    result.write(f"events_2_f, {cond}, iit_gate_out_2\n")
+    result.write(f"iit_gate_out_2, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, events_2\n")
+    result.write(f"events_2_t, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, kd_1\n")
+    
+    active_loc = "kd_1"
+
+#Auxiliary function to check if a string is a number
+#Required for pushing numbers to the stack
+def is_num(s):
+    global cond, active_loc
+    for char in s:
+        if not char.isdigit():
+            return False
+    return True
+
 result = open("output.iitkv", "w")
 active_loc = "start"
 path = "path.txt"
