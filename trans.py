@@ -1,6 +1,8 @@
 cond = 0
 active_loc = 'start'
 
+
+#Graph_Start
 def init():
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -9,6 +11,7 @@ def init():
     result.write(f"pronite_2, {cond}, mt_3_2\n")
     active_loc = "mt_3_2"
 
+#Graph_End
 def end_graph():
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -16,6 +19,7 @@ def end_graph():
     result.write(f"oat_stage, {cond}, finish\n")
     active_loc = "finish"
 
+#Auxilary function for push
 def prep_insert():
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -29,6 +33,7 @@ def prep_insert():
 
     active_loc = "hall_13_2"
 
+#Input function
 def get_input(p):
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -42,6 +47,7 @@ def get_input(p):
         result.write(f"iit_gate_in_2\n")
         active_loc = "iit_gate_in_2"
 
+#Output function
 def pr_output(p):
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -56,6 +62,7 @@ def pr_output(p):
         result.write(f"iit_gate_out_2\n")
         active_loc = "iit_gate_out_2"
 
+#Pop function
 def popf():
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -69,6 +76,8 @@ def popf():
 
     active_loc = "kd_3"
 
+
+#Arithmetic operations
 def operations(hall):
     global cond, active_loc
     result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
@@ -104,7 +113,8 @@ def mod():
     active_loc = "kd_3"
 
     operations("hall_5")
- 
+
+#Memory manipulations 
 def swap():
     global cond, active_loc
     
@@ -300,6 +310,43 @@ def dup():
     
     active_loc = "kd_2"
 
+#Looping functions
+def loop_start():
+    global cond, active_loc
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+    loop_history.append(cond)
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, lecture_hall_eq\n")
+    result.write(f"lecture_hall_eq_f, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    result.write(f"kd_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, kd_2\n")
+    active_loc = "kd_2"
+
+def loop_end():
+    global cond, active_loc
+    a = loop_history[len(loop_history) - 1] - cond
+    loop_history.pop()
+    
+    result.write(f"{active_loc}, {cond}, oat_stage[{a}]\n")
+    cond += a
+    
+    cond += 1
+    result.write(f"lecture_hall_eq_t" + ", {cond}, " + "oat_stage[" + str(-a + 1) + "]\n")
+    
+    cond -= (a - 1)
+    active_loc = "oat_stage"
 
 result = open("output.iitkv", "w")
 active_loc = "start"
