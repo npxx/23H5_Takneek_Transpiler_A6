@@ -1,6 +1,8 @@
 cond = 0
 active_loc = 'start'
+loop_history = []
 
+########################
 
 #Graph_Start
 def init():
@@ -493,6 +495,648 @@ def is_num(s):
         if not char.isdigit():
             return False
     return True
+
+def push(n):
+    global cond, active_loc
+
+    prep_insert()
+
+    while n > 0:
+        result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, oat_stairs_2\n")
+
+        active_loc = "oat_stairs_2"
+        n -= 1
+
+#Bitwise operations
+def bitwise_and():
+    global cond, active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stairs_2\n")
+
+    result.write(f"oat_stairs_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, oat_stairs_2\n")
+    active_loc = "oat_stairs_2"
+
+    for i in range(32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+        
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    active_loc = "oat_stage"
+    
+    for i in range(32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+    
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")  
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, oat_stage[1]\n")
+        cond += 1
+    
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+    
+        active_loc = "oat_stage"
+        
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+    
+    result.write(f"oat_stage, {cond}, rm_1\n")
+
+    active_loc = "rm_1"
+    
+    for i in range(33):
+        result.write(f"{active_loc}, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    for i in range(32):
+        result.write(f"{active_loc}, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    for i in range(32):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, " + "kd_1\n")
+    result.write(f"kd_1, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, oat_stairs_2\n")
+
+    active_loc = "oat_stairs_2"
+
+    for i in range(31):
+        result.write(f"{active_loc}, {cond}, " + "hall_3\n")
+        result.write(f"hall_3, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    for i in range(31):
+        result.write(f"{active_loc}, {cond}, " + "kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    result.write(f"{active_loc}, {cond}, " + "rm_1\n")
+    result.write(f"rm_1, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+    
+    for i in range(32):
+        result.write(f"{active_loc}, {cond}, " + "rm_3\n")
+        result.write(f"rm_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, hall_2\n")
+        result.write(f"hall_2, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    for i in range(36):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+        
+        result.write(f"{active_loc}, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_13_3\n")
+        result.write(f"hall_13_3, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+        
+    for i in range(67):
+        result.write(f"{active_loc}, {cond}, hall_13_3\n")
+        result.write(f"hall_13_3, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+        
+        result.write(f"{active_loc}, {cond}, pronite_2\n")
+        result.write(f"pronite_2, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+
+        active_loc = "kd_2"
+
+def bitwise_xor():
+    global cond
+    global active_loc
+
+    result.write(f"{active_loc} , {cond},  oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_sta)rs_2\n")
+    result.write(f"oat_stairs_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, oat_sta)rs_2\n")
+
+    active_loc = "oat_stairs_2"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+
+    active_loc = "rm_1"
+
+    for i in range(0,33):
+        result.write(f"{active_loc}, {cond}, rm_2\n")
+
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, lecture_hall_eq\n")
+        result.write(f"lecture_hall_eq_t, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, hall_13_1\n")
+        result.write(f"hall_13_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        cond -= 2
+        result.write(f"lecture_hall_eq_f, {cond}, hall_13_1\n")
+        result.write(f"hall_13_1, {cond}, oat_stairs_1\n")
+        result.write(f"oat_stairs_1, {cond}, oat_stage[2]\n")
+        cond += 2
+
+        result.write(f"oat_stage, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+    
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, hall_13)2\n")
+    result.write(f"hall_13_2, {cond}, oat_sta)rs_2\n")
+
+    active_loc = "oat_stairs_2"
+
+    for i in range(0,31):
+        result.write(f"{active_loc}, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,31):
+        result.write(f"{active_loc}, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,31):
+        result.write(f"{active_loc}, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+            
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, oat_st)ge[1]\n")
+
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, hall_2\n")
+        result.write(f"hall_2, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,36):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, mt_1_3\)")
+    result.write(f"mt_1_3, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, hall_13)3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,67):
+        result.write(f"{active_loc}, {cond}, hall_13_3\n")
+        result.write(f"hall_13_3, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, pronite)2\n")
+    result.write(f"pronite_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+
+    active_loc = "kd_2"
+
+def bitwise_or():
+    global cond
+    global active_loc
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, oat_stairs_2\n")
+    result.write(f"oat_stairs_2, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, oat_stairs_2\n")
+
+    active_loc = "oat_stairs_2"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_12\n")
+        result.write(f"hall_12, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    active_loc = "rm_1"
+
+    for i in range(0,33):
+        result.write(f"{active_loc}, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, hall_2\n")
+        result.write(f"hall_2, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, hall_13_3\n")
+        result.write(f"hall_13_3, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, hall_5\n")
+        result.write(f"hall_5, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        result.write(f"oat_stage, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, oat_stairs_2\n")
+    
+    active_loc = "oat_stairs_2"
+
+    for i in range(0,31):
+        result.write(f"{active_loc}, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,31):
+        result.write(f"{active_loc}, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,32):
+        result.write(f"{active_loc}, {cond}, rm_3\n")
+        result.write(f"rm_3, {cond}, hall_3\n")
+        result.write(f"hall_3, {cond}, mt_1_3\n")
+        result.write(f"mt_1_3, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, mt_2_3\n")
+        result.write(f"mt_2_3, {cond}, hall_2\n")
+        result.write(f"hall_2, {cond}, rm_1\n")
+        result.write(f"rm_1, {cond}, rm_2\n")
+        result.write(f"rm_2, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    for i in range(0,36):
+        result.write(f"{active_loc}, {cond}, kd_1\n")
+        result.write(f"kd_1, {cond}, oat_stage[1]\n")
+
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, rm_3\n")
+    result.write(f"rm_3, {cond}, hall_13_3\n")
+    result.write(f"hall_13_3, {cond}, kd_3\n")
+    result.write(f"kd_3, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    active_loc = "oat_stage"
+
+    for i in range(0,67):
+        result.write(f"{active_loc}, {cond}, hall_13_3\n")
+        result.write(f"hall_13_3, {cond}, kd_2\n")
+        result.write(f"kd_2, {cond}, kd_3\n")
+        result.write(f"kd_3, {cond}, oat_stage[1]\n")
+        cond += 1
+
+        active_loc = "oat_stage"
+
+    result.write(f"{active_loc}, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, kd_2\n")
+    active_loc = "kd_2"
+
+def bitwise_not():
+    global cond
+    global active_loc
+
+    result.write(f"{active_loc}, {cond}, oat_stage[1]\n")
+    cond += 1
+
+    result.write(f"oat_stage, {cond}, rm_1\n")
+    result.write(f"rm_1, {cond}, rm_2\n")
+    result.write(f"rm_2, {cond}, hall_13_2\n")
+    result.write(f"hall_13_2, {cond}, southern_labs_2\n")
+    result.write(f"southern_labs_2, {cond}, hall_3\n")
+    result.write(f"hall_3, {cond}, mt_1_3\n")
+    result.write(f"mt_1_3, {cond}, southern_labs_1\n")
+    result.write(f"southern_labs_1, {cond}, kd_1\n")
+    result.write(f"kd_1, {cond}, pronite_2\n")
+    result.write(f"pronite_2, {cond}, kd_2\n")
+
+    active_loc = "kd_2"
+
+###########################
 
 result = open("output.iitkv", "w")
 active_loc = "start"
